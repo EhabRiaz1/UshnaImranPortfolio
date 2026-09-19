@@ -41,6 +41,11 @@ def anim_tile(slug,label):
             f'          <span class="tile__label">{label}</span>\n'
             f'        </div>')
 
+def ver(rel):
+    """?v=<mtime> so a deploy can never serve a stale css/js from cache."""
+    try: return f'{rel}?v={int(os.path.getmtime(f"{ROOT}/{rel}"))}'
+    except OSError: return rel
+
 n_social = len([f for f in os.listdir(f'{ROOT}/assets/img') if f.startswith('social-')])
 social = '\n'.join(
     f'            <figure class="social__item"><img src="assets/img/social-{i:02d}.webp" '
@@ -59,7 +64,7 @@ HTML = f'''<!DOCTYPE html>
 <meta property="og:type" content="website">
 <link rel="preload" href="assets/fonts/Satoshi-Black.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Satoshi-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="{ver('css/style.css')}">
 </head>
 <body>
 
@@ -204,7 +209,7 @@ HTML = f'''<!DOCTYPE html>
   </div>
 </div>
 
-<script src="js/main.js"></script>
+<script src="{ver('js/main.js')}"></script>
 </body>
 </html>
 '''

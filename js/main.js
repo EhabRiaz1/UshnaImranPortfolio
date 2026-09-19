@@ -140,8 +140,10 @@
     if (!v) return;
     const on  = () => { v.preload = 'auto'; box.classList.add('is-playing'); play(v); };
     const off = () => { box.classList.remove('is-playing'); v.pause(); };
-    box.addEventListener('mouseenter', on);
-    box.addEventListener('mouseleave', off);
+    // mouseover/mouseout bubble (mouseenter does not, and is missed by some
+    // synthetic pointers); relatedTarget guards child-to-child transitions.
+    box.addEventListener('mouseover', e => { if (!box.contains(e.relatedTarget)) on();  });
+    box.addEventListener('mouseout',  e => { if (!box.contains(e.relatedTarget)) off(); });
     box.addEventListener('focusin', on);
     box.addEventListener('focusout', off);
     // touch: tap toggles
