@@ -16,19 +16,19 @@ UIUX=[['squint-cognition','aaron-rodricks','frame'],
       ['rend-stephan','atoofy','animal-conservatory'],
       ['syncquik','keke','cio1']]
 def slice_uiux():
-    src=Image.open(f'{IMG}/grid-uiux.png').convert('RGBA')
+    src=Image.open(f'{ROOT}/tools/renders/grid-uiux.png').convert('RGBA')
     node=find(page,'2:29539'); nb=node['absoluteBoundingBox']
     S=src.width/nb['width']
     cols=[3,356,710]; rows=[0,332,664]; W,H=347,238
     for ri,y in enumerate(rows):
         for ci,x in enumerate(cols):
             box=(round(x*S),round(y*S),round((x+W)*S),round((y+H)*S))
-            src.crop(box).save(f'{IMG}/uiux-{UIUX[ri][ci]}.png')
+            src.crop(box).save(f'{IMG}/uiux-{UIUX[ri][ci]}.webp', 'WEBP', quality=84, method=6)
             print(f'  uiux-{UIUX[ri][ci]:<22} {box[2]-box[0]}x{box[3]-box[1]}')
 
 # ---------- Social : derive every tile rect from the JSON -------------------
 def slice_social():
-    src=Image.open(f'{IMG}/grid-social.png').convert('RGBA')
+    src=Image.open(f'{ROOT}/tools/renders/grid-social.png').convert('RGBA')
     node=find(page,'2:28096'); nb=node['absoluteBoundingBox']
     S=src.width/nb['width']; ox,oy=nb['x'],nb['y']
     tiles=[]
@@ -43,12 +43,12 @@ def slice_social():
         box=(max(0,round(x*S)),max(0,round(y*S)),
              min(src.width,round((x+w)*S)),min(src.height,round((y+h)*S)))
         name=f'social-{i:02d}'
-        src.crop(box).save(f'{IMG}/{name}.png')
+        src.crop(box).save(f'{IMG}/{name}.webp','WEBP',quality=84,method=6)
         man.append(dict(n=name,x=x,y=y,w=w,h=h))
     json.dump(man,open(f'{ROOT}/tools/social-tiles.json','w'),indent=1)
     print(f'  wrote {len(man)} social tiles; grid {nb["width"]:.0f}x{nb["height"]:.0f}')
     return man
 
 if __name__=='__main__':
-    if os.path.exists(f'{IMG}/grid-uiux.png'):   print('UI/UX:');  slice_uiux()
-    if os.path.exists(f'{IMG}/grid-social.png'): print('SOCIAL:'); slice_social()
+    if os.path.exists(f'{ROOT}/tools/renders/grid-uiux.png'):   print('UI/UX:');  slice_uiux()
+    if os.path.exists(f'{ROOT}/tools/renders/grid-social.png'): print('SOCIAL:'); slice_social()

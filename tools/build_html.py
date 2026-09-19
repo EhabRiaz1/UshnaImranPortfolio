@@ -25,7 +25,7 @@ def tile(slug,label,img,cls='tile'):
     attr = (f' type="button" class="tile tile--link" data-case="{slug}"'
             f' aria-haspopup="dialog"' if link else ' class="tile tile--static"')
     return (f'        <{tag}{attr}>\n'
-            f'          <span class="tile__art"><img src="assets/img/{img}.png" alt="{label}" loading="lazy" width="694" height="476"></span>\n'
+            f'          <span class="tile__art"><img src="assets/img/{img}.webp" alt="{label}" loading="lazy" width="694" height="476"></span>\n'
             f'          <span class="tile__label">{label}</span>\n'
             f'        </{tag}>')
 
@@ -43,7 +43,7 @@ def anim_tile(slug,label):
 
 n_social = len([f for f in os.listdir(f'{ROOT}/assets/img') if f.startswith('social-')])
 social = '\n'.join(
-    f'            <figure class="social__item"><img src="assets/img/social-{i:02d}.png" '
+    f'            <figure class="social__item"><img src="assets/img/social-{i:02d}.webp" '
     f'alt="Social media design {i}" loading="lazy" width="694" height="756"></figure>'
     for i in range(1, n_social+1))
 
@@ -78,10 +78,10 @@ HTML = f'''<!DOCTYPE html>
 
   <section class="hero">
     <h1 class="hero__title">
-      <img class="hero__rose" src="assets/img/hero-rose.png" alt="" width="344" height="264">
+      <img class="hero__rose" src="assets/img/hero-rose.webp" alt="" width="344" height="264">
       Crafting ideas that matter
     </h1>
-    <img class="hero__art" src="assets/img/hero-illustration.png" alt="Illustration of a figure standing before a row of robed figures" width="1539" height="1455">
+    <img class="hero__art" src="assets/img/hero-illustration.webp" alt="Illustration of a figure standing before a row of robed figures" width="1539" height="1455">
     <nav class="hero__jump" aria-label="Sections">
       <a href="#branding" data-jump="branding">Branding</a>
       <span class="hero__dot" aria-hidden="true"></span>
@@ -110,7 +110,7 @@ HTML = f'''<!DOCTYPE html>
   </section>
 
   <div class="band">
-    <img class="band__art" src="assets/img/break-2.png" alt="" width="2880" height="486">
+    <img class="band__art" src="assets/img/break-2.webp" alt="" width="2880" height="486">
     <p class="band__text">{LONG}</p>
   </div>
 
@@ -129,7 +129,7 @@ HTML = f'''<!DOCTYPE html>
   <section class="social" id="social">
     <div class="wrap">
       <div class="social__head">
-        <img class="social__rose" src="assets/img/hero-rose.png" alt="" width="344" height="264">
+        <img class="social__rose" src="assets/img/hero-rose.webp" alt="" width="344" height="264">
         <h2 class="social__title">Social Media</h2>
       </div>
       <p class="social__blurb">{BLURB}</p>
@@ -169,10 +169,10 @@ HTML = f'''<!DOCTYPE html>
       <div class="covers">
         <p class="covers__label">Covers</p>
         <div class="covers__row">
-          <img src="assets/img/cover-1.png" alt="World Rhino Day cover" loading="lazy" width="616" height="872">
-          <img src="assets/img/cover-2.png" alt="Thailand cover" loading="lazy" width="616" height="872">
-          <img src="assets/img/cover-3.png" alt="World Rhino Day cover" loading="lazy" width="616" height="872">
-          <img src="assets/img/cover-4.png" alt="Build your brand cover" loading="lazy" width="616" height="872">
+          <img src="assets/img/cover-1.webp" alt="World Rhino Day cover" loading="lazy" width="616" height="872">
+          <img src="assets/img/cover-2.webp" alt="Thailand cover" loading="lazy" width="616" height="872">
+          <img src="assets/img/cover-3.webp" alt="World Rhino Day cover" loading="lazy" width="616" height="872">
+          <img src="assets/img/cover-4.webp" alt="Build your brand cover" loading="lazy" width="616" height="872">
         </div>
       </div>
     </div>
