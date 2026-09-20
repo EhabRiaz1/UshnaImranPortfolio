@@ -33,6 +33,12 @@ ALIASES = {
     'keke':                ['keke'],
     'cio1':                ['cio1', 'cio'],
 }
+# The homepage frame carries the covers row; slicing it beats exporting four
+# groups whose Figma names are machine-generated. Coords are 1x frame-relative.
+HOMEPAGE = ['ushnaportfolio', 'ushna', 'portfolio', 'homepage']
+COVER_RECTS = [('cover-1', 337, 6094, 154, 218), ('cover-2', 541, 6094, 154, 218),
+               ('cover-3', 746, 6094, 154, 218), ('cover-4', 951, 6094, 154, 218)]
+
 COVERS = {'cover-1': ['cover1', 'cover-1', 'worldrhinoday'],
           'cover-2': ['cover2', 'cover-2', 'cover50'],
           'cover-3': ['cover3', 'cover-3'],
@@ -68,6 +74,18 @@ def slice_case(slug, path):
     kb = sum(os.path.getsize(f'{d}/{f}') for f in os.listdir(d)) // 1024
     print(f'  {slug:<22} {im.width}x{im.height} -> {n} slices, {kb}KB')
 
+def slice_covers(path):
+    im = Image.open(path).convert('RGBA')
+    s = im.width / 1440.0                       # exported at whatever scale
+    print(f'  homepage frame {im.width}x{im.height} (detected {s:g}x)')
+    for name, x, y, w, h in COVER_RECTS:
+        box = (round(x*s), round(y*s), round((x+w)*s), round((y+h)*s))
+        if box[3] > im.height:
+            print(f'    {name}: frame too short, skipped'); continue
+        im.crop(box).save(f'{IMG}/{name}.webp', 'WEBP', quality=90, method=6)
+        print(f'    {name:<10} {box[2]-box[0]}x{box[3]-box[1]}')
+
+
 def manifest():
     m = {}
     for slug in ALIASES:
@@ -97,6 +115,8 @@ if __name__ == '__main__':
         slug = match(f, ALIASES)
         if slug:
             slice_case(slug, p); continue
+        if match(f, {'homepage': HOMEPAGE}):
+            slice_covers(p); continue
         cov = match(f, COVERS)
         if cov:
             im = Image.open(p).convert('RGBA')
