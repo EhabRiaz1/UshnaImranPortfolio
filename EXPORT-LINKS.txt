@@ -1,0 +1,14 @@
+# Export these 9 frames: select frame -> Export panel -> PNG -> 2x -> Export
+# Save into assets/case/_incoming/ keeping the default filename.
+
+Lark                   https://www.figma.com/design/qNIx6bYZZ9ewdWayAdL57P/Untitled?node-id=2-47
+Aaron                  https://www.figma.com/design/qNIx6bYZZ9ewdWayAdL57P/Untitled?node-id=2-4673
+KEKE                   https://www.figma.com/design/qNIx6bYZZ9ewdWayAdL57P/Untitled?node-id=2-5124
+Animal Conservatory    https://www.figma.com/design/qNIx6bYZZ9ewdWayAdL57P/Untitled?node-id=2-5259
+CIO1                   https://www.figma.com/design/qNIx6bYZZ9ewdWayAdL57P/Untitled?node-id=2-5362
+Frame                  https://www.figma.com/design/qNIx6bYZZ9ewdWayAdL57P/Untitled?node-id=2-15474
+Rend                   https://www.figma.com/design/qNIx6bYZZ9ewdWayAdL57P/Untitled?node-id=2-16869
+QuikSnap               https://www.figma.com/design/qNIx6bYZZ9ewdWayAdL57P/Untitled?node-id=2-17319
+Zayriba                https://www.figma.com/design/qNIx6bYZZ9ewdWayAdL57P/Untitled?node-id=2-27801
+
+# Covers: rename these on export to cover-1.png .. cover-4.png (left to right)
