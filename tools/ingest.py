@@ -39,10 +39,13 @@ HOMEPAGE = ['ushnaportfolio', 'ushna', 'portfolio', 'homepage']
 COVER_RECTS = [('cover-1', 337, 6094, 154, 218), ('cover-2', 541, 6094, 154, 218),
                ('cover-3', 746, 6094, 154, 218), ('cover-4', 951, 6094, 154, 218)]
 
-COVERS = {'cover-1': ['cover1', 'cover-1', 'worldrhinoday'],
+# Left-to-right on the page. The group names are Figma's own machine ids,
+# recorded here so a re-export drops straight in:
+#   x=337 -> 2:29424  x=541 -> 2:29322  x=746 -> 2:29431  x=951 -> 2:29362
+COVERS = {'cover-1': ['cover1', 'cover-1', 'group1614004541', 'worldrhinoday'],
           'cover-2': ['cover2', 'cover-2', 'cover50'],
-          'cover-3': ['cover3', 'cover-3'],
-          'cover-4': ['cover4', 'cover-4', 'cover51']}
+          'cover-3': ['cover3', 'cover-3', 'group1614004542'],
+          'cover-4': ['cover4', 'cover-4', 'group1614004609', 'cover51']}
 
 norm = lambda s: re.sub(r'[^a-z0-9]', '', os.path.splitext(s)[0].lower())
 
