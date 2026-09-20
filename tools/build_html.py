@@ -2,6 +2,13 @@
 """Emit index.html. Keeps the 48-tile social grid in markup (works without JS)."""
 import json, os
 ROOT='/Users/ehabriaz/Desktop/uWebsite'
+
+# Absolute URL of the deployed site. Social platforms (WhatsApp, iMessage,
+# Slack, Twitter) will NOT resolve a relative og:image — change this one line
+# if the site moves to a custom domain, then re-run this script.
+SITE = 'https://ehabriaz1.github.io/UshnaImranPortfolio'
+DESC = ('Ushna Imran — creative designer working across branding, UI/UX, '
+        'social media and 2d animation.')
 BLURB = "I’m Ushna, part architect, part storyteller, and a full-time creative designer. My work spans brand, strategy,"
 LONG  = ("I’m Ushna, part architect, part storyteller, and a full-time creative designer. "
          "My work spans brand, strategy, and narrative-driven design across multiple mediums, "
@@ -58,10 +65,33 @@ HTML = f'''<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ushna Imran — Crafting Ideas That Matter</title>
-<meta name="description" content="Ushna Imran — creative designer working across branding, UI/UX, social media and 2d animation.">
-<meta property="og:title" content="Ushna Imran — Crafting Ideas That Matter">
-<meta property="og:description" content="Creative designer working across branding, UI/UX, social media and 2d animation.">
+<meta name="description" content="{DESC}">
+<link rel="canonical" href="{SITE}/">
+<meta name="theme-color" content="#1D1D1D">
+
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Ushna Imran">
+<meta property="og:url" content="{SITE}/">
+<meta property="og:title" content="Ushna Imran — Crafting Ideas That Matter">
+<meta property="og:description" content="{DESC}">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="{SITE}/assets/img/og-image.jpg">
+<meta property="og:image:secure_url" content="{SITE}/assets/img/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ushna Imran — Crafting Ideas That Matter">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ushna Imran — Crafting Ideas That Matter">
+<meta name="twitter:description" content="{DESC}">
+<meta name="twitter:image" content="{SITE}/assets/img/og-image.jpg">
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="assets/fonts/Satoshi-Black.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Satoshi-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{ver('css/style.css')}">
