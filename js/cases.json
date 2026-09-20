@@ -1,1 +1,47 @@
-{}
+{
+ "lark": [
+  "assets/case/lark/01.webp",
+  "assets/case/lark/02.webp",
+  "assets/case/lark/03.webp"
+ ],
+ "quiksnap": [
+  "assets/case/quiksnap/01.webp",
+  "assets/case/quiksnap/02.webp",
+  "assets/case/quiksnap/03.webp"
+ ],
+ "zayriba": [
+  "assets/case/zayriba/01.webp",
+  "assets/case/zayriba/02.webp",
+  "assets/case/zayriba/03.webp"
+ ],
+ "aaron-rodricks": [
+  "assets/case/aaron-rodricks/01.webp",
+  "assets/case/aaron-rodricks/02.webp",
+  "assets/case/aaron-rodricks/03.webp"
+ ],
+ "frame": [
+  "assets/case/frame/01.webp",
+  "assets/case/frame/02.webp",
+  "assets/case/frame/03.webp"
+ ],
+ "rend-stephan": [
+  "assets/case/rend-stephan/01.webp",
+  "assets/case/rend-stephan/02.webp",
+  "assets/case/rend-stephan/03.webp"
+ ],
+ "animal-conservatory": [
+  "assets/case/animal-conservatory/01.webp",
+  "assets/case/animal-conservatory/02.webp",
+  "assets/case/animal-conservatory/03.webp"
+ ],
+ "keke": [
+  "assets/case/keke/01.webp",
+  "assets/case/keke/02.webp",
+  "assets/case/keke/03.webp"
+ ],
+ "cio1": [
+  "assets/case/cio1/01.webp",
+  "assets/case/cio1/02.webp",
+  "assets/case/cio1/03.webp"
+ ]
+}
